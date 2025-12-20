@@ -1,11 +1,11 @@
 # Optimizacija upita u PostgreSQL-u
 
 ## Opis projekta
-U ovom projektu objaönjene su strukture podataka koje PostgreSQL moûe koristiti za optimizaciju upita, kao i osnovni algoritmi za njihovo izvröavanje. Analiziran je na?in skladiötenja podataka, struktura i funkcionalnost indeksa, kao i troökovi razli?itih JOIN algoritama koje planer moûe da izabere.
+U ovom projektu obja≈°njene su strukture podataka koje PostgreSQL mo≈æe koristiti za optimizaciju upita, kao i osnovni algoritmi za njihovo izvr≈°avanje. Analiziran je na?in skladi≈°tenja podataka, struktura i funkcionalnost indeksa, kao i tro≈°kovi razliƒçitih JOIN algoritama koje planer mo≈æe da izabere.
 
 Teorijski deo realizovan je kroz dva ilustrovana primera nad realnim skupom podataka.
 
-U okviru projekta koriö?ena je literatura PostgreSQL Query Optimization: The Ultimate Guide to Building Efficient Queries (Henrietta Dombrovskaza, Boris Novikov, Anna Bailliekova 1st ed.). 
+U okviru projekta kori≈°ƒáena je literatura PostgreSQL Query Optimization: The Ultimate Guide to Building Efficient Queries (Henrietta Dombrovskaza, Boris Novikov, Anna Bailliekova 1st ed.). 
 
 ---
 
@@ -13,20 +13,20 @@ U okviru projekta koriö?ena je literatura PostgreSQL Query Optimization: The Ult
 Baza podataka preuzeta je sa javno dostupnog IMDB repozitorijuma:  
 https://datasets.imdbws.com/
 
-U projektu su koriö?ene slede?e datoteke:
-- `name.basics.tsv.gz` ñ podaci o osobama koje su u?estvovale u filmu  
-- `title.basics.tsv.gz` ñ osnovni podaci o filmovima  
-- `title.principals.tsv.gz` ñ relacija izme?u filmova i osoblja  
-- `title.ratings.tsv.gz` ñ ocene filmova  
+U projektu su kori≈°ƒáene sledeƒáe datoteke:
+- `name.basics.tsv.gz` ÔøΩ podaci o osobama koje su uƒçestvovale u filmu  
+- `title.basics.tsv.gz` ÔøΩ osnovni podaci o filmovima  
+- `title.principals.tsv.gz` ÔøΩ relacija izmeƒëu filmova i osoblja  
+- `title.ratings.tsv.gz` ÔøΩ ocene filmova  
 
 ---
 
 ## Priprema podataka
-Potrebno je napomenuti da tabele nisu u potpunosti konzistentne, da je ve?ina polja tipa `TEXT`, kao i da veliki broj vrednosti ima `NULL` vrednost.
+Potrebno je napomenuti da tabele nisu u potpunosti konzistentne, da je veƒáina polja tipa `TEXT`, kao i da veliki broj vrednosti ima `NULL` vrednost.
 
-Konzistentnost se postiûe izvröavanjem SQL komande prikazane na slici 17, kojom se briöu nekonzistentni podaci izme?u tabela `ucesnici` i `naziv_osoblja`. Odgovaraju?i upit potrebno je primeniti i na preostale tabele.
+Konzistentnost se posti≈æe izvr≈°avanjem SQL komande prikazane na slici 17, kojom se bri≈°u nekonzistentni podaci izmeƒëu tabela `ucesnici` i `naziv_osoblja`. Odgovarajuƒái upit potrebno je primeniti i na preostale tabele.
 
-Tako?e, neophodno je definisati strane klju?eve preko kojih su tabele me?usobno povezane.
+Takoƒëe, neophodno je definisati strane kljuƒçeve preko kojih su tabele meƒëusobno povezane.
 
 ---
 
